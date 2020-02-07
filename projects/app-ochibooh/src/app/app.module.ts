@@ -21,6 +21,7 @@ import {UtilsModule} from 'utils';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
+import {environment} from '../environments/environment';
 
 @NgModule({
     declarations: [
@@ -29,8 +30,8 @@ import {AppComponent} from './app.component';
     imports: [
         BrowserModule,
         AppRoutingModule,
-        UtilsModule,
-        StoreModule
+        UtilsModule.forRoot(environment.production),
+        StoreModule.forRoot(environment.production)
     ],
     providers: [],
     bootstrap: [AppComponent]

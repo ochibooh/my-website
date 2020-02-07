@@ -14,8 +14,7 @@
  * limitations under the License.
  */
 
-import {NgModule} from '@angular/core';
-
+import {ModuleWithProviders, NgModule} from '@angular/core';
 
 @NgModule({
     declarations: [],
@@ -23,4 +22,15 @@ import {NgModule} from '@angular/core';
     exports: []
 })
 export class UtilsModule {
+    public static forRoot(production: boolean): ModuleWithProviders {
+        return {
+            ngModule: UtilsModule,
+            providers: [
+                {
+                    provide: 'production',
+                    useValue: production
+                }
+            ]
+        };
+    }
 }
